@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Color ComboBox</title>
+    </head>
+    <style>
+        #caja{ 
+            width:800px;
+            height:200px;
+            background:black; 
+          };
+    </style>
+    <body>
+        <script type="text/javascript">
+            function cambiaColor1(){
+                document.getElementById('caja').style.backgroundColor="red";
+              }
+              function cambiaColor2(){
+                document.getElementById('caja').style.backgroundColor="green";
+              }
+              function cambiaColor3(){
+                document.getElementById('caja').style.backgroundColor="blue";
+              }
+              function cambiaColor4(){
+                document.getElementById('caja').style.backgroundColor="yellow";
+              }
+        </script>
+        <div id="caja"></div>
+            <input type="button" value="rojo" onclick="cambiaColor1()">
+            <input type="button" value="verde" onclick="cambiaColor2()">
+            <input type="button" value="azul" onclick="cambiaColor3()">
+            <input type="button" value="amarillo" onclick="cambiaColor4()">
+    </body>
+</html>

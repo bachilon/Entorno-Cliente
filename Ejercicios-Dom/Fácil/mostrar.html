@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mostrar y ocultar texto</title>
+    <style>
+        button {
+            margin: 1.5em;
+            box-shadow: 1em 1em 0.8em;
+            background: #00ccee;
+            padding: 1em;
+            padding-right: 1.3em;
+            font-weight: bold;
+          }
+          
+          p {
+            margin-left: 2em;
+            font-weight: bold;
+          }
+          
+          .show {
+            display: block;
+          }
+          
+          .hidden {
+            display: none;
+          }
+          
+    </style>
+</head>
+<body>
+    </div>
+    <script>
+        function mostrar(){
+            parr = document.getElementById("ejemplo");
+            parr.classList.remove("hidden");
+            parr.classList.add("show");
+          }
+          
+          function ocultar(){
+            parr = document.getElementById("ejemplo");
+            parr.classList.remove("show");
+            parr.classList.add("hidden");
+          }
+        
+    </script>
+    <button type="button" onclick="mostrar();" alt="Mostrar texto">Mostrar</button>
+<button type="button" onclick="ocultar();" alt="Ocultar texto">Ocultar</button>
+
+<p id="ejemplo"> Pulsa para poder ocultar el texto</p>
+</body>
+</html>

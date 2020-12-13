@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Fibonacci</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+            function fibonacci(argument){
+                const ul = document.getElementById('fibo');
+                const arrayLi = document.getElementsByTagName('li');
+                const lastLi2 = parseInt(arrayLi[arrayLi.length -2].innerHTML);
+                const lastLi1 = parseInt(arrayLi[arrayLi.length -1].innerHTML);      
+                const devolver = lastLi2 + lastLi1;
+                const newLi = document.createElement('li');
+                newLi.innerHTML = devolver;
+                ul.appendChild(newLi);
+            }
+        </script>
+        <button onclick="fibonacci()">Serie Fibonacci</button>
+        <ul id="fibo">
+            <li>1</li>
+            <li>1</li>
+        </ul>
+    </body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Botones</title>
+    </head>
+    <style>
+        #texto {
+            font-size: 4em;
+            user-select: none;
+          }
+          
+          #texto:hover:after {
+            position: relative;
+            top: -40px;
+            left: 40px;
+            padding: 10px;
+            background-color: #6f6;
+            border-radius: 15px;
+            font-size: 1rem;
+            content: 'Haz click para revertir';
+          }
+          
+          #cambiar {
+            font-size: 2em;
+          }
+          
+          section {
+            margin: 40px;
+            padding: 20px;
+            border: 1px solid black;
+          }
+    </style>
+    <body>
+        <section>
+            <h1 id="texto">Hello World</h1>
+            <button id="cambiar">Cambiar texto</button>
+          </section>
+          
+        <script type="text/javascript">
+            function cambiarTexto() {
+                var text = prompt('Texto inicial');
+                if (text !== null && text !== "") {
+                  document.getElementById('texto').innerText = text; 
+                }
+              }
+              
+              function revertirTexto() {
+                var text = "";
+                for (var i = this.innerText.length; i > 0; i--) {
+                  text += this.innerText.charAt(i - 1);
+                }
+                this.innerText = text;
+              }
+              
+              function configurarEventos() {
+                document.getElementById('texto').onclick = revertirTexto;
+                document.getElementById('cambiar').onclick = cambiarTexto;
+              }
+              
+              configurarEventos();
+        </script>
+        
+    </body>
+</html>

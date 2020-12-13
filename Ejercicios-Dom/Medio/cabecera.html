@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Cabecera</title>
+        <style>
+            .cabecera{
+                border: 2px rgba(233, 250, 0, 0.63) solid;
+                background-color: rgb(0, 255, 64);
+            }
+            .cabecera ul li{
+                font-size: 20px;
+                list-style-type: none;
+                display: inline;
+                padding: 10px;
+                border: 2px blue solid;
+                background-color: #f8f8f8;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div class="cabecera">
+            <ul>
+                <li onclick="cambiarColor(this)">Inicio</li>
+                <li onclick="cambiarColor(this)">Blog</li>
+                <li onclick="cambiarColor(this)">Sobre mí</li>
+                <li onclick="cambiarColor(this)">Fotos</li>
+                <li onclick="cambiarColor(this)">Portfolio</li>
+                <li onclick="cambiarColor(this)">Contacto</li>
+                <li onclick="cambiarColor(this)">Enlaces</li>
+            </ul>
+        </div>
+
+        <script>
+            function cambiarColor(seccion){
+                let lis = document.getElementsByTagName('li');
+                for(var i = 0; i < lis.length; i++){
+                    lis[i].style.color = "#000000";
+                    lis[i].style.backgroundColor = "#00ffff";
+                }
+                seccion.style.color = "#ffffff";
+                seccion.style.backgroundColor = "#000000";
+            }
+        </script>
+    </body>
+</html>

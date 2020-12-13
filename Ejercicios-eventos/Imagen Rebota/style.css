@@ -1,0 +1,12 @@
+body {
+    background-color: rgb(0, 0, 0);
+    font-family: Arial, sans-serif;
+  }
+  canvas {
+    display: block;
+    margin: 0 auto;
+    margin: calc(50vh - 150px) auto;
+    background: rgb(92, 92, 92);
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px 3px rgb(155, 155, 155);
+  }
