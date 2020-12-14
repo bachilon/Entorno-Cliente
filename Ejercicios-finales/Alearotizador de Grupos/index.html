@@ -1,0 +1,152 @@
+<!DOCTYPE html>>
+<head>
+    <style>
+        body {
+            text-align: center;
+          }
+          #div2 {
+            visibility: hidden;
+          }
+          
+          #div3 {
+            visibility: hidden;
+          }
+          
+          #boton {
+            visibility: hidden;
+          }
+          
+          #div4 {
+            visibility: hidden;
+          }
+          
+    </style>
+</head>
+
+<body>
+    
+        <h1>Aleatorizador de grupos</h1>
+        <div id="div1">
+
+            <h2>Numero de grupos :</h2>
+            <input type="number" id="ngrupos">
+
+
+            <h2>Numero de personas por cada grupo :</h2>
+            <input type="number" id="pgrupos">
+
+            <input type="button" value="Enviar" onclick="fgrupos()">
+        </div>
+
+        <div id="div2">
+            <h2>Introduce los nombres</h2>
+            <input type="text" id="nombres">
+        </div>
+        <div id="boton">
+            <input type="button" value="Enviar" onclick="nombres()">
+        </div>
+
+        <div id="div3">
+            <h2>Grupos llenos</h2>
+            <input type="button" value="Crear grupos" onclick="crear()">
+        </div>
+
+        <div id="div4">
+            <p id="parrafo"></p>
+        </div>
+    
+
+    <script>
+        let grupos = 0;
+var personas = 0;
+var nombres_lista = new Array();
+var print_grupos = new Array();
+var numero_de_grupo = 1;
+
+function fgrupos() {
+  var ngrupos = document.getElementById("ngrupos").value;
+  grupos = ngrupos;
+
+  var pgrupos = document.getElementById("pgrupos").value;
+  personas = pgrupos;
+
+  if (ngrupos <= 0 || pgrupos <= 0) {
+    alert("Introduce un numero valido");
+  } else {
+    let div = document.getElementById("div1");
+    let padre = div.parentNode;
+    padre.removeChild(div);
+
+    document.getElementById("div2").style.visibility = "visible";
+    document.getElementById("boton").style.visibility = "visible";
+  }
+}
+
+function nombres() {
+  var nombres_input = document.getElementById("nombres").value;
+  var grupos_lista = new Array(grupos);
+  var numero_nombres = grupos * personas;
+
+  if (nombres_lista.length < numero_nombres) {
+    nombres_lista.push(nombres_input);
+    document.getElementById("nombres").value = "";
+  }
+
+  if (nombres_lista.length == numero_nombres) {
+    console.log("tamo lleno");
+    let div = document.getElementById("boton");
+    let padre = div.parentNode;
+    padre.removeChild(div);
+    document.getElementById("div2").style.visibility = "hidden";
+    document.getElementById("div3").style.visibility = "visible";
+  }
+}
+
+function crear() {
+  document.getElementById("div3").style.visibility = "hidden";
+  document.getElementById("div2").style.visibility = "hidden";
+  document.getElementById("div4").style.visibility = "visible";
+
+  barajar(nombres_lista);
+
+  while (grupos > 0) {
+    var nombre1 = "";
+
+    for (i = 0; i < personas; i++) {
+      nombre1 = "";
+      nombre1 = nombres_lista[0];
+      print_grupos.push(nombre1);
+      nombres_lista.splice(0, 1);
+    }
+
+    var newDiv = document.createElement("div");
+    var newContent = document.createTextNode(
+      "Grupo " + numero_de_grupo + " : " + print_grupos
+    );
+    newDiv.appendChild(newContent);
+    var currentDiv = document.getElementById("div1");
+    document.body.insertBefore(newDiv, currentDiv);
+    grupos = grupos - 1;
+    print_grupos = [];
+    numero_de_grupo = numero_de_grupo + 1;
+  }
+}
+
+function barajar(array) {
+  var currentIndex = array.length,
+    temporaryValue,
+    randomIndex;
+  while (0 !== currentIndex) {
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+  return array;
+}
+
+    </script>
+</body>
+</html>
